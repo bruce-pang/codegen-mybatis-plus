@@ -11,7 +11,7 @@
     <artifactId>codegen-mybatis-plus-common</artifactId>
     <packaging>jar</packaging>
 
-    <name>codegen-mybatis-plus-common</name>
+    <name>${project.artifactId}</name>
     <description>Define base class, enum, utils..</description>
     <url>https://github.com/bruce-pang/codegen-mybatis-plus</url>
 

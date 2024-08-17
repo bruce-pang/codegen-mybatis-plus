@@ -32,7 +32,7 @@
         <lombok.version>1.18.34</lombok.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <hutool-5.version>5.8.29</hutool-5.version>
-        <hutool-6.version>6.0.0-M14</hutool-6.version>
+        <hutool-6.version>6.0.0-M16</hutool-6.version>
         <!--encode-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
