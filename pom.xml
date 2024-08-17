@@ -9,8 +9,11 @@
 
   <name>${project.artifactId}</name>
   <description>a code generator based on mybatis plus</description>
+  <url>https://github.com/bruce-pang/codegen-mybatis-plus</url>
   <modules>
     <module>brucepang-dependencies</module>
+    <module>codegen-mybatis-plus-spring-boot-starter</module>
+    <module>codegen-mybatis-plus-common</module>
   </modules>
 
   <properties>

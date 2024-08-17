@@ -8,32 +8,38 @@
     <packaging>pom</packaging>
 
     <name>brucepang-dependencies</name>
-    <description>基于 bom 文件， 管理整个项目的依赖版本</description>
-    <url>https://</url>
+    <description>Based on bom to manage dependency versions for the entire project</description>
+    <url>https://github.com/bruce-pang/codegen-mybatis-plus</url>
 
     <properties>
         <revision>0.0.1</revision>
         <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
-        <!-- 统一依赖管理 -->
+        <!-- unified dependency management -->
         <spring.boot.version>3.3.1</spring.boot.version>
-        <!-- Database 相关 -->
+        <!--Web-->
+        <springdoc.version>2.3.0</springdoc.version>
+        <knife4j.version>4.5.0</knife4j.version>
+        <!-- Database -->
         <druid.version>1.2.23</druid.version>
         <mybatis.version>3.5.16</mybatis.version>
         <mybatis-plus.version>3.5.7</mybatis-plus.version>
         <mybatis-plus-generator.version>3.5.7</mybatis-plus-generator.version>
         <dynamic-datasource.version>4.3.1</dynamic-datasource.version>
         <mybatis-plus-join.version>1.4.13</mybatis-plus-join.version>
-        <!-- Cache相关 -->
+        <!-- Cache -->
         <guava.version>33.2.1-jre</guava.version>
-        <!--工具类相关-->
+        <!-- Utils -->
         <lombok.version>1.18.34</lombok.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <hutool-5.version>5.8.29</hutool-5.version>
+        <hutool-6.version>6.0.0-M14</hutool-6.version>
+        <!--encode-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!-- 统一依赖管理 -->
+            <!-- unified dependency management -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -41,13 +47,20 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!-- Spring 核心 -->
+            <!-- Spring Core -->
             <dependency>
-                <!-- 用于生成自定义的 Spring @ConfigurationProperties 配置类的说明文件 -->
+                <!-- Used to build custom Spring @ConfigurationProperties Configuration Description Doc -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-configuration-processor</artifactId>
                 <version>${spring.boot.version}</version>
             </dependency>
+            <!-- Cache Core -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <!--DataBase -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-3-starter</artifactId>
@@ -77,6 +90,65 @@
                 <groupId>com.github.yulichang</groupId>
                 <artifactId>mybatis-plus-join-boot-starter</artifactId> <!-- MyBatis 联表查询 -->
                 <version>${mybatis-plus-join.version}</version>
+            </dependency>
+
+            <!-- Web Core -->
+            <dependency>
+                <groupId>cn.iocoder.cloud</groupId>
+                <artifactId>yudao-spring-boot-starter-web</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+                <version>${springdoc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId> <!-- 接口文档 UI：knife4j【网关专属】 -->
+                <artifactId>knife4j-gateway-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
+            <!-- Utils Lib  -->
+            <dependency>
+                <groupId>com.brucepang</groupId>
+                <artifactId>codegen-mybatis-plus-common</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId> <!-- use mapstruct-jdk8 for Java 8 or higher -->
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-jdk8</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool-5.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dromara.hutool</groupId>
+                <artifactId>hutool-extra</artifactId>
+                <version>${hutool-6.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
